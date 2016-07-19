@@ -1,4 +1,3 @@
-package ofermino.com.projetoajudemeaajudar;
 
 import android.content.Context;
 import android.graphics.Bitmap;
