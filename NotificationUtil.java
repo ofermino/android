@@ -1,4 +1,3 @@
-﻿
 
 /* inserir o package aqui */
 
