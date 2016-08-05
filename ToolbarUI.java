@@ -1,4 +1,3 @@
-package com.alobebe.root.myapplication;
 
 import android.annotation.TargetApi;
 import android.content.Context;
@@ -55,8 +54,8 @@ public class ToolbarUI extends AppCompatActivity {
         if(inflate){
             LayoutInflater mInflater= LayoutInflater.from(context);
             View mCustomView = mInflater.inflate(R.layout.textview, null);
+            mCustomView.setBackgroundColor(Color.parseColor(backgroundColor));
             titulo = (TextView) mCustomView.findViewById(R.id.custom_toolbar_title);
-
             titulo.setText(title);
             titulo.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -64,15 +63,13 @@ public class ToolbarUI extends AppCompatActivity {
                     Toast.makeText(context,"Titulo", Toast.LENGTH_LONG).show();
                 }
             });
-
             toolbar.addView(mCustomView);
+        }else{
+            toolbar.setTitle(title);
+            toolbar.setSubtitle(subTitle);
+            toolbar.setTitleTextColor(Color.parseColor(titleColor));
+            toolbar.setSubtitleTextColor(Color.parseColor(subTitlecolor));
         }
-//        toolbar.setTitle(title);
-
-
-     //toolbar.setSubtitle(subTitle);
-        toolbar.setTitleTextColor(Color.parseColor(titleColor));
-        toolbar.setSubtitleTextColor(Color.parseColor(subTitlecolor));
         toolbar.setBackgroundColor(Color.parseColor(backgroundColor));
         toolbar.setElevation(elevationToolbar);
         if(menu) {
@@ -100,13 +97,5 @@ public class ToolbarUI extends AppCompatActivity {
                 }
             });
         }
-
-
-
-
     }
-
-
 }
-
-
