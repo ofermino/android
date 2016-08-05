@@ -33,6 +33,7 @@ public class ToolbarUI extends AppCompatActivity {
     private Boolean menu;
     private Boolean inflate;
     private TextView titulo;
+    private static  ToolbarUI INSTANCE;
 
     public ToolbarUI(String title, String subTitle,int elevationToolbar,Toolbar toolbar, String subTitleColor, String titleColor, String backgroundColor, Context context, Boolean menu, Boolean navigationIcon,Boolean inflate) {
 
@@ -47,6 +48,16 @@ public class ToolbarUI extends AppCompatActivity {
         this.context = context;
         this.menu = menu;
         this.inflate = inflate;
+    }
+
+    public ToolbarUI() {
+    }
+
+    public static  synchronized  ToolbarUI getInstance(){
+        if (INSTANCE == null){
+            INSTANCE = new ToolbarUI();
+        }
+        return INSTANCE;
     }
 
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
